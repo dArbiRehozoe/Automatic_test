@@ -12,18 +12,16 @@ if __name__ == "__main__":
 
 
     driver.get(file_url)
-    data = pd.read_excel(file_path , sheet_name="Données")
+    data = pd.read_excel(file_path)
 # Itérer sur chaque ligne de données du DataFrame
     for index, row in data.iterrows():
         # Accéder aux données du projet
         projet_data = {
-            "Nom_affaire": row["Nom_affaire"],
-            "Date_Deadline": row["Date_Deadline"],
-            "Adresse": row["Adresse"],
-            "Prioritaire": row["Prioritaire"],
+            "client": row["client"],
+
             # ... autres données du projet (accéder aux colonnes par leur nom)
         }
-        print(projet_data["Nom_affaire"])
+        print(projet_data["client"])
         # Remplir le formulaire web
         # ... code pour remplir les champs du formulaire avec les données du projet
 
