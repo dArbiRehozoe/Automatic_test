@@ -18,10 +18,12 @@ if __name__ == "__main__":
         # Accéder aux données du projet
         projet_data = {
             "client": row["client"],
+            "type equipement":row["type equipement"]
 
             # ... autres données du projet (accéder aux colonnes par leur nom)
         }
         print(projet_data["client"])
+        print(projet_data["type equipement"])
         # Remplir le formulaire web
         # ... code pour remplir les champs du formulaire avec les données du projet
 
