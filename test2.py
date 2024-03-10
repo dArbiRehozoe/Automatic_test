@@ -6,6 +6,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import TimeoutException
+
 import time
 import pandas as pd
 
@@ -26,14 +28,19 @@ chrome_options.add_experimental_option("detach", True)
 driver = webdriver.Chrome(options=chrome_options)
 driver.get("https://cap-irve-stage.digetit.com/")
 
-# Remplir le formulaire de connexion
-email_input = WebDriverWait(driver, 10).until(
+try:
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "some_other_element")))
+    email_input = WebDriverWait(driver, 10).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, "#email"))
-) 
+    )
+except TimeoutException:
+    print("Erreur: Éléments non trouvés dans le délai imparti")
+
+
 email_input.send_keys("natifesia@gmail.com")
 
 password_input = driver.find_element(By.ID, "password")
-password_input.send_keys(" natifesia-test@cap-irve-dev")
+password_input.send_keys("natifesia-test@cap-irve-dev")
 
 login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
 login_button.click()
