@@ -7,7 +7,7 @@ if __name__ == "__main__":
     options.add_argument("--headless")
     driver = webdriver.Chrome(options=options)
     # Convertir le chemin du fichier en URL format file
-    file_path = "/home/fesia/testSelenium/selenium_env/DATA TEST CAP-IRVE (1).xlsx"
+    file_path = "/home/williamjamesmoriart/Automatic_test/DATA-TEST-CAP-IRVE-1.xlsx"
     file_url = urllib.parse.urljoin('file:', urllib.request.pathname2url(file_path))
     driver.get(file_url)
     data = pd.read_excel(file_path)
