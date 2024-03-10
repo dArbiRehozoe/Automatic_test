@@ -28,13 +28,12 @@ chrome_options.add_experimental_option("detach", True)
 driver = webdriver.Chrome(options=chrome_options)
 driver.get("https://cap-irve-stage.digetit.com/")
 
-try:
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "some_other_element")))
-    email_input = WebDriverWait(driver, 10).until(
-    EC.visibility_of_element_located((By.CSS_SELECTOR, "#email"))
-    )
-except TimeoutException:
-    print("Erreur: Éléments non trouvés dans le délai imparti")
+
+WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "some_other_element")))
+email_input = WebDriverWait(driver, 10).until(
+EC.visibility_of_element_located((By.CSS_SELECTOR, "#email"))
+)
+
 
 
 email_input.send_keys("natifesia@gmail.com")
