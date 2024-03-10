@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.uixcel import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 
@@ -18,7 +18,14 @@ driver = webdriver.Chrome()
 excel_file_path = '/home/williamjamesmoriart/Automatic_test/DATA-TEST-CAP-IRVE-1.xlsx'
 
 # Lisez le fichier Excel avec pandas
-df_excel = pd.read_excel(excel_file_path)
+df_excel = pd.read_excel(excel_file_path , sheet_name="Données")
+
+# Itérer sur chaque ligne de données
+for index, row in df_excel.iterrows():
+    # Lire les données du client et du type d'équipement
+    client = row["client"]
+    type_equipement = row["type equipement"]
+    
 
 # Configurer les options du navigateur
 chrome_options = Options()
