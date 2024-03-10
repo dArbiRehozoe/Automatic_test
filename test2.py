@@ -13,7 +13,7 @@ import pandas as pd
 driver = webdriver.Chrome()
 
 # Spécifiez le chemin vers votre fichier Excel téléchargé localement
-excel_file_path = '/home/fesia/Téléchargements/DATA TEST CAP-IRVE.xlsx'
+excel_file_path = '/home/williamjamesmoriart/Automatic_test/DATA-TEST-CAP-IRVE-1.xlsx'
 
 # Lisez le fichier Excel avec pandas
 df_excel = pd.read_excel(excel_file_path)
