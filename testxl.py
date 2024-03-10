@@ -24,7 +24,7 @@ if __name__ == "__main__":
             "Prioritaire": row[3].value,
             # ... autres données du projet
         }
-
+        print(projet_data["Nom_affaire"])
         # Remplir le formulaire web
         # ... code pour remplir les champs du formulaire avec les données du projet
 
